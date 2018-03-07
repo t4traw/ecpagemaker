@@ -1,8 +1,8 @@
 {
-  "name": "shoppagemaker",
+  "name": "ecpagemaker",
   "version": "1.0.0",
   "description": "Nuxt.js project",
-  "author": "Tatsuro Moriyama <t4traw@gmail.com>",
+  "author": "t4traw <t4traw@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
