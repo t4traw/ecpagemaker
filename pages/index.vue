@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <foo-bar v-for='index in counter' :key="index"/>
+      <capture-test v-for='index in counter' :key="index"/>
       <h1 class="title">
         shoppagemaker
       </h1>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import FooBar from '~/components/foobar.vue'
+import CaptureTest from '~/components/capture_test.vue'
 
 export default {
   data: function() {
@@ -23,7 +23,7 @@ export default {
     }
   },
   components: {
-    FooBar
+    CaptureTest
   },
 }
 </script>
