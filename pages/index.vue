@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
+      <foo-bar v-for='index in counter' :key="index"/>
       <h1 class="title">
         shoppagemaker
       </h1>
@@ -23,11 +23,16 @@
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import FooBar from '~/components/foobar.vue'
 
 export default {
+  data() {
+    return {
+      counter: 2
+    }
+  },
   components: {
-    AppLogo
+    FooBar
   }
 }
 </script>
