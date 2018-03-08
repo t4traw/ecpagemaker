@@ -1,17 +1,16 @@
 <template lang="ejs">
   <div class="block">
-    <div id="capture_block">
-      <h2 contenteditable="true">{{foobar}}</h2>
+    <div id="capture_block" v-on:click="edit_block">
+      <h2>{{foobar}}</h2>
+      <button v-on:click="edit_block">edit</button>
     </div>
-    <div class="">
+    <div class="modal hidden">
       <input v-model="foobar">
     </div>
-    <button v-on:click="capture">Capture!!!!</button>
   </div>
 </template>
 
 <script>
-import html2canvas from 'html2canvas'
 export default {
   data() {
     return {
@@ -19,10 +18,9 @@ export default {
     }
   },
   methods: {
-    capture: function(){
-      html2canvas(document.body).then(function(canvas) {
-          document.body.appendChild(canvas);
-      });
+    edit_block: function(){
+      document.querySelector('#modal').classList.remove('hidden')
+      var bg = document.createElement('div')
     }
   }
 }
@@ -33,4 +31,7 @@ export default {
 .block
   background-color: rgb(218, 214, 156)
   margin-bottom: 1em
+
+.hidden
+  display: none
 </style>

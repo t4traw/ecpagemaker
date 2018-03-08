@@ -1,19 +1,15 @@
 <template>
   <section class="container">
-    <div>
+    <div class="design_column">
       <capture-test v-for='index in counter' :key="index"/>
-      <h1 class="title">
-        shoppagemaker
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
       <button v-on:click="counter++">aaa</button>
+      <button v-on:click="capture">Capture!!!!</button>
     </div>
   </section>
 </template>
 
 <script>
+import html2canvas from 'html2canvas'
 import CaptureTest from '~/components/capture_test.vue'
 
 export default {
@@ -25,10 +21,22 @@ export default {
   components: {
     CaptureTest
   },
+  methods: {
+    capture: function(){
+      html2canvas(document.body).then(function(canvas) {
+          document.body.appendChild(canvas);
+      });
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+.design_column {
+  width: 800px;
+}
+
 .container {
   min-height: 100vh;
   display: flex;
