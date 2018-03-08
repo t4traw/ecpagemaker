@@ -1,7 +1,7 @@
 <template lang="ejs">
   <div class="block">
     <div id="capture_block">
-      <h2>{{foobar}}</h2>
+      <h2 contenteditable="true">{{foobar}}</h2>
     </div>
     <div class="">
       <input v-model="foobar">
