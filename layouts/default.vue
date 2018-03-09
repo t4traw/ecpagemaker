@@ -1,7 +1,6 @@
 <template>
   <div>
     <nuxt/>
-    <div id="modal_bg" class="hidden" v-on:click="delete_modal"></div>
   </div>
 </template>
 
@@ -9,12 +8,12 @@
 export default {
   data() {
     return {
-      
     }
   },
   methods: {
     delete_modal: function(){
       document.querySelector('#modal_bg').classList.add('hidden')
+      document.querySelector('#modal_content').classList.add('hidden')
     }
   }
 }

@@ -1,12 +1,16 @@
 <template lang="ejs">
   <div class="block">
-    <div id="capture_block" v-on:click="edit_block">
+    <div id="capture_block" v-on:click="open_modal()">
       <h2>{{foobar}}</h2>
-      <button v-on:click="edit_block">edit</button>
+      <button v-on:click="open_modal()">edit</button>
     </div>
-    <div class="modal hidden">
-      <input v-model="foobar">
+    
+    <div id="modal" class="hidden" v-on:click="close_modal()">
+      <div id="modal_content">
+        <input v-model="foobar">
+      </div>
     </div>
+    
   </div>
 </template>
 
@@ -17,11 +21,6 @@ export default {
       foobar: 'FooBar'
     }
   },
-  methods: {
-    edit_block: function(){
-      document.querySelector('#modal_bg').classList.remove('hidden')
-    }
-  }
 }
 </script>
 
@@ -29,7 +28,4 @@ export default {
 .block
   background-color: rgb(218, 214, 156)
   margin-bottom: 1em
-
-.hidden
-  display: none
 </style>
