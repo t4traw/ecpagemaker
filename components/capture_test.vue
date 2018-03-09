@@ -5,7 +5,8 @@
       <button v-on:click="open_modal()">edit</button>
     </div>
     
-    <div id="modal" class="hidden" v-on:click="close_modal()">
+    <div id="modal" class="hidden">
+      <span class="close" v-on:click="close_modal"></span>
       <div id="modal_content">
         <input v-model="foobar">
       </div>

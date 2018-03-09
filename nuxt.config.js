@@ -16,6 +16,7 @@ module.exports = {
   css: [
     '~/stylesheets/common.sass',
     '~/stylesheets/modal.sass',
+    '~/stylesheets/close_button.sass',
   ],
   plugins: [
     '~/plugins/modal'
