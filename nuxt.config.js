@@ -14,8 +14,9 @@ module.exports = {
     ],
   },
   css: [
-    '~/assets/styylesheets/modal.css'
-  ]
+    '~/assets/stylesheets/common.sass',
+    '~/assets/stylesheets/modal.sass'
+  ],
   /*
   ** Customize the progress bar color
   */

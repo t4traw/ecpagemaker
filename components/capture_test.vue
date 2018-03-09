@@ -19,12 +19,10 @@ export default {
   },
   methods: {
     edit_block: function(){
-      document.querySelector('#modal').classList.remove('hidden')
-      var bg = document.createElement('div')
+      document.querySelector('#modal_bg').classList.remove('hidden')
     }
   }
 }
-
 </script>
 
 <style lang="sass" scoped>
