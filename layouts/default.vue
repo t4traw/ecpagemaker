@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt/>
-    <div id="modal_bg" v-on:click="delete_modal"></div>
+    <div id="modal_bg" class="hidden" v-on:click="delete_modal"></div>
   </div>
 </template>
 
