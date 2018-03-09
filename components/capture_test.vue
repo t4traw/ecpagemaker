@@ -1,17 +1,7 @@
 <template lang="ejs">
-  <div class="block">
-    <div id="capture_block" v-on:click="open_modal()">
-      <h2>{{foobar}}</h2>
-      <button v-on:click="open_modal()">edit</button>
-    </div>
-    
-    <div id="modal" class="hidden">
-      <span class="close" v-on:click="close_modal"></span>
-      <div id="modal_content">
-        <input v-model="foobar">
-      </div>
-    </div>
-    
+  <div id="editable" class="block">
+    <div class="text" v-if="!edit" v-text="foobar" v-on:click="edit = true"></div>
+    <input v-if="edit" type="text" v-model="foobar" v-on:blur="edit = false" v-autofocus>
   </div>
 </template>
 
@@ -19,9 +9,17 @@
 export default {
   data() {
     return {
-      foobar: 'FooBar'
+      foobar: 'FooBar',
+      edit: false
     }
   },
+  directives: {
+    autofocus: {
+      inserted: function (el) {
+        el.focus()
+      }
+    }
+  }
 }
 </script>
 
