@@ -2,6 +2,8 @@
   <section class="container">
     <div class="design_column">
       <capture-test v-for='index in counter' :key="index"/>
+    </div>
+    <div class="">
       <button v-on:click="counter++">aaa</button>
       <button v-on:click="capture">Capture!!!!</button>
     </div>
@@ -38,11 +40,13 @@ export default {
 }
 
 .container {
+  width: 800px;
+  margin: 10em auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
 }
 
 .title {

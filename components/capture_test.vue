@@ -15,7 +15,7 @@ export default {
   },
   directives: {
     autofocus: {
-      inserted: function (el) {
+      inserted: function(el) {
         el.focus()
       }
     }
