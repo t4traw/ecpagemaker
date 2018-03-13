@@ -21,9 +21,9 @@ export default {
       counter: 2,
       currentView: 'headblock',
       children: [
-        {name: 'headblock', body: 'へっだー'},
-        {name: 'subblock', body: 'さぶぶろっく'},
-        {name: 'headblock', body: 'へっだーふたたび'},
+        {name: 'headblock', body: ['へっだー']},
+        {name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ']},
+        {name: 'headblock', body: ['へっだーふたたび']},
       ]
     }
   },
@@ -38,7 +38,7 @@ export default {
       });
     },
     add_sub1_block: function(){
-      this.children.push('subblock')
+      this.children.push({name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ']})
     }
   }
 }

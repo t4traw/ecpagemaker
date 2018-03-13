@@ -1,8 +1,8 @@
 <template lang="ejs">
   <div id="editable" class="block">
-    <h1>Sub1 block</h1>
-    <div class="text" v-if="!edit" v-text="foobar" v-on:click="edit = true"></div>
-    <input v-if="edit" type="text" v-model="foobar" v-on:blur="edit = false" v-autofocus>
+    <h1>{{midashi}}</h1>
+    <div class="text" v-if="!edit" v-text="content" v-on:click="edit = true"></div>
+    <input v-if="edit" type="text" v-model="content" v-on:blur="edit = false" v-autofocus>
   </div>
 </template>
 
@@ -10,7 +10,8 @@
 export default {
   data() {
     return {
-      foobar: this.msg,
+      midashi: this.msg[0],
+      content: this.msg[1],
       edit: false
     }
   },

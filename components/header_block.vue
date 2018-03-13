@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      foobar: this.msg,
+      foobar: this.msg[0],
       edit: false
     }
   },
