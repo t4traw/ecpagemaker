@@ -1,10 +1,10 @@
 <template>
   <section class="container">
-    <div class="design_column">
-      <capture-test v-for='index in counter' :key="index"/>
-    </div>
+    <template v-for="(child, index) in children">
+        <component :is="child" :key="index"></component>
+    </template>
     <div class="">
-      <button v-on:click="counter++">aaa</button>
+      <button v-on:click="add_sub1_block">Add Sub1Block</button>
       <button v-on:click="capture">Capture!!!!</button>
     </div>
   </section>
@@ -12,22 +12,33 @@
 
 <script>
 import html2canvas from 'html2canvas'
-import CaptureTest from '~/components/capture_test.vue'
+import HeaderBlock from '~/components/header_block.vue'
+import Sub1Block from '~/components/sub1_block.vue'
 
 export default {
   data: function() {
     return {
-      counter: 2
+      counter: 2,
+      currentView: 'headblock',
+      children: [
+        'headblock',
+        'subblock',
+        'headblock',
+      ]
     }
   },
   components: {
-    CaptureTest
+    "headblock": HeaderBlock,
+    "subblock": Sub1Block
   },
   methods: {
     capture: function(){
       html2canvas(document.body).then(function(canvas) {
           document.body.appendChild(canvas);
       });
+    },
+    add_sub1_block: function(){
+      this.children.push('subblock')
     }
   }
 }
@@ -35,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.design_column {
+#design_column {
   width: 800px;
 }
 
@@ -43,10 +54,6 @@ export default {
   width: 800px;
   margin: 10em auto;
   min-height: 100vh;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // text-align: center;
 }
 
 .title {
