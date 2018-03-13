@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <template v-for="(child, index) in children">
-        <component :is="child" :key="index"></component>
+        <component v-bind:is="child.name" v-bind:key="index" v-bind:msg="child.body"></component>
     </template>
     <div class="">
       <button v-on:click="add_sub1_block">Add Sub1Block</button>
@@ -21,9 +21,9 @@ export default {
       counter: 2,
       currentView: 'headblock',
       children: [
-        'headblock',
-        'subblock',
-        'headblock',
+        {name: 'headblock', body: 'へっだー'},
+        {name: 'subblock', body: 'さぶぶろっく'},
+        {name: 'headblock', body: 'へっだーふたたび'},
       ]
     }
   },

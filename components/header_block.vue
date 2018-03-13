@@ -9,10 +9,11 @@
 export default {
   data() {
     return {
-      foobar: 'FooBar',
+      foobar: this.msg,
       edit: false
     }
   },
+  props: ['msg'],
   directives: {
     autofocus: {
       inserted: function(el) {
