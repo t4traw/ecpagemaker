@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <template v-for="(child, index) in children">
-        <component v-bind:is="child.name" v-bind:key="index" v-bind:msg="child.body" v-bind:num="index" v-on:panretRemoveBlock="remove_block" class="design_component"></component>
+        <component v-bind:is="child.name" v-bind:key="index" v-bind:msg="child.body" v-bind:num="index" v-on:panretRemoveBlock="remove_block(index)" class="design_component"></component>
     </template>
     <div class="">
       <button v-on:click="add_header_block">Add HeaderBlock</button>
@@ -44,8 +44,8 @@ export default {
     add_sub1_block: function(){
       this.children.push({name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ']})
     },
-    remove_block: function(){
-      alert('remove_block!!')
+    remove_block: function(el){
+      this.children.splice(el, 1)
     }
   }
 }
