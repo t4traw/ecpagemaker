@@ -1,9 +1,10 @@
 <template>
   <section class="container">
     <template v-for="(child, index) in children">
-        <component v-bind:is="child.name" v-bind:key="index" v-bind:msg="child.body"></component>
+        <component v-bind:is="child.name" v-bind:key="index" v-bind:msg="child.body" v-bind:num="index" v-on:panretRemoveBlock="remove_block" class="design_component"></component>
     </template>
     <div class="">
+      <button v-on:click="add_header_block">Add HeaderBlock</button>
       <button v-on:click="add_sub1_block">Add Sub1Block</button>
       <button v-on:click="capture">Capture!!!!</button>
     </div>
@@ -19,16 +20,16 @@ export default {
   data: function() {
     return {
       counter: 2,
-      currentView: 'headblock',
+      currentView: 'headerblock',
       children: [
-        {name: 'headblock', body: ['へっだー']},
+        {name: 'headerblock', body: ['へっだー']},
         {name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ']},
-        {name: 'headblock', body: ['へっだーふたたび']},
+        {name: 'headerblock', body: ['へっだーふたたび']},
       ]
     }
   },
   components: {
-    "headblock": HeaderBlock,
+    "headerblock": HeaderBlock,
     "subblock": Sub1Block
   },
   methods: {
@@ -37,11 +38,18 @@ export default {
           document.body.appendChild(canvas);
       });
     },
+    add_header_block: function(){
+      this.children.push({name: 'headerblock', body: ['ついかしたへっだー', 'さぶこんてんつ']})
+    },
     add_sub1_block: function(){
       this.children.push({name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ']})
+    },
+    remove_block: function(){
+      alert('remove_block!!')
     }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -75,5 +83,9 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.design_component {
+  position: relative;
 }
 </style>

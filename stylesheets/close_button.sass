@@ -1,19 +1,24 @@
+$close_button_size: 21px
+
 .close
-  position: absolute
-  right: 32px
-  top: 32px
-  width: 32px
-  height: 32px
+  right: -8px
+  top: -8px
+  width: $close_button_size
+  height: $close_button_size
   opacity: 1
+  position: absolute
+  background-color: #ed4545
+  border-radius: $close_button_size
   &:hover
     opacity: 1
   &:before, &:after
-    position: absolute
-    left: 15px
+    top: 2px
+    left: 10px
     content: ' '
-    height: 33px
+    height: 16px
     width: 2px
-    background-color: #ffffff
+    background-color: #000000
+    position: absolute
   &:before
     transform: rotate(45deg)
   &:after
