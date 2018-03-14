@@ -1,17 +1,17 @@
-$close_button_size: 21px
-
 .close
+  $close_button_size: 21px
   right: -10px
   top: -10px
   width: $close_button_size
   height: $close_button_size
-  opacity: 1
+  opacity: 0
   position: absolute
   background-color: rgba(0, 0, 0, 0.25)
   border-radius: $close_button_size
   cursor: pointer
-  &:hover
-    opacity: 1
+  // transition: opacity .2s ease-out
+  // &:hover
+    // opacity: 1
   &:before, &:after
     top: 2px
     left: 10px

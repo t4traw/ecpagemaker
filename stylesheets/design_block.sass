@@ -1,4 +1,12 @@
 .design_block
+  padding: 5px
+
+
+// 実際のデザインとは関係ないUX動作
+.design_block
   border: 1px solid rgba(0, 0, 0, 0)
   &:hover
     border: 1px dashed rgb(156, 156, 156)
+  &:hover > .close
+    opacity: 1
+    // transition: opacity .2s ease-out

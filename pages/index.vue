@@ -1,12 +1,15 @@
+
+<!-- children.splice(index, 1) -->
 <template>
   <section class="container">
-    <template v-for="(child, index) in children">
-        <component v-bind:is="child.name" v-bind:key="index" v-bind:msg="child.body" v-bind:num="index" v-on:panretRemoveBlock="remove_block(index)" class="design_component"></component>
-    </template>
+      <template v-for="(child, index) in children">
+        <component v-bind:key="index" v-bind:index="index" v-bind:is="child.name" v-bind:msg="child.body" v-on:remove="child.display = false" v-if="child.display" class="design_component"></component>
+      </template>
     <div class="">
       <button v-on:click="add_header_block">Add HeaderBlock</button>
       <button v-on:click="add_sub1_block">Add Sub1Block</button>
       <button v-on:click="capture">Capture!!!!</button>
+      <button v-on:click="log">log</button>
     </div>
   </section>
 </template>
@@ -19,12 +22,14 @@ import Sub1Block from '~/components/sub1_block.vue'
 export default {
   data: function() {
     return {
-      counter: 2,
+      counter: 0,
       currentView: 'headerblock',
       children: [
-        {name: 'headerblock', body: ['へっだー']},
-        {name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ']},
-        {name: 'headerblock', body: ['へっだーふたたび']},
+        {name: 'headerblock', body: ['へっだー'], display: true},
+        {name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ'], display: true},
+        {name: 'headerblock', body: ['へっだーふたたび1'], display: false},
+        {name: 'headerblock', body: ['へっだーふたたび2'], display: true},
+        {name: 'headerblock', body: ['へっだーふたたび3'], display: true},
       ]
     }
   },
@@ -38,15 +43,24 @@ export default {
           document.body.appendChild(canvas);
       });
     },
+    log: function(){
+      console.log(this.children)
+    },
     add_header_block: function(){
-      this.children.push({name: 'headerblock', body: ['ついかしたへっだー', 'さぶこんてんつ']})
+      this.counter += 1
+      this.children.push({name: 'headerblock', body: ["ついかしたへっだー" + this.counter, 'さぶこんてんつ'], display: true})
+      console.log(this.children)
     },
     add_sub1_block: function(){
-      this.children.push({name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ']})
+      this.counter += 1
+      this.children.push({name: 'subblock', body: ['さぶへっだー' + this.counter, 'さぶこんてんつ'], display: true})
+      console.log(this.children)
     },
-    remove_block: function(el){
-      this.children.splice(el, 1)
-    }
+    // remove_block: function(child){
+    //   console.log('Delete: ' + child);
+    //   this.children.$remove(child)
+    //   console.log(this.children)
+    // }
   }
 }
 
@@ -60,7 +74,7 @@ export default {
 
 .container {
   width: 800px;
-  margin: 10em auto;
+  margin: 2em auto;
   min-height: 100vh;
 }
 
