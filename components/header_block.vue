@@ -1,5 +1,5 @@
 <template lang="ejs">
-  <div id="editable" class="block">
+  <div id="editable" class="design_block">
     <span class="close" v-on:click="$emit('panretRemoveBlock')"></span>
     <div class="text" v-if="!edit" v-text="foobar" v-on:click="edit = true"></div>
     <input v-if="edit" type="text" v-model="foobar" v-on:blur="edit = false" v-autofocus>
@@ -26,7 +26,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.block
-  background-color: rgb(218, 214, 156)
-  margin-bottom: 1em
+  
 </style>

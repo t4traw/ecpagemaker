@@ -16,6 +16,7 @@ module.exports = {
   css: [
     '~/stylesheets/common.sass',
     '~/stylesheets/close_button.sass',
+    '~/stylesheets/design_block.sass',
   ],
   /*
   ** Customize the progress bar color

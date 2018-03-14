@@ -1,5 +1,5 @@
 <template lang="ejs">
-  <div id="editable" class="block">
+  <div id="editable" class="design_block">
     <span class="close" v-on:click="$emit('panretRemoveBlock')"></span>
     <h1>{{midashi}}</h1>
     <div class="text" v-if="!edit" v-text="content" v-on:click="edit = true"></div>
@@ -28,7 +28,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.block
-  background-color: rgb(218, 214, 156)
-  margin-bottom: 1em
+  
 </style>

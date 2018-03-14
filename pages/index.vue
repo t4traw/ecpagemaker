@@ -87,5 +87,6 @@ export default {
 
 .design_component {
   position: relative;
+  margin-bottom: 1em;
 }
 </style>
