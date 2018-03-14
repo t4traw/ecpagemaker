@@ -49,12 +49,10 @@ export default {
     add_header_block: function(){
       this.counter += 1
       this.children.push({name: 'headerblock', body: ["ついかしたへっだー" + this.counter, 'さぶこんてんつ'], display: true})
-      console.log(this.children)
     },
     add_sub1_block: function(){
       this.counter += 1
       this.children.push({name: 'subblock', body: ['さぶへっだー' + this.counter, 'さぶこんてんつ'], display: true})
-      console.log(this.children)
     },
     // remove_block: function(child){
     //   console.log('Delete: ' + child);
@@ -101,6 +99,6 @@ export default {
 
 .design_component {
   position: relative;
-  margin-bottom: 1em;
+  background-color: rgb(223, 222, 220)
 }
 </style>
