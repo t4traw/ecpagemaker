@@ -1,5 +1,3 @@
-
-<!-- children.splice(index, 1) -->
 <template>
   <section class="container">
       <template v-for="(child, index) in children">
