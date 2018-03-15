@@ -4,8 +4,8 @@
         <component v-bind:key="index" v-bind:index="index" v-bind:is="child.name" v-bind:msg="child.body" v-on:remove="child.display = false" v-if="child.display" class="design_component"></component>
       </template>
     <div class="">
-      <button v-on:click="add_header_block">Add HeaderBlock</button>
-      <button v-on:click="add_sub1_block">Add Sub1Block</button>
+      <button v-on:click="add_plain_component">Add Plain</button>
+      <button v-on:click="add_basic1_component">Add Basic1</button>
       <button v-on:click="capture">Capture!!!!</button>
       <button v-on:click="log">log</button>
     </div>
@@ -14,8 +14,8 @@
 
 <script>
 import html2canvas from 'html2canvas'
-import HeaderBlock from '~/components/header_block.vue'
-import Sub1Block from '~/components/sub1_block.vue'
+import PlainComponent from '~/components/design_block/plain.vue'
+import Basic1Component from '~/components/design_block/basic1.vue'
 
 export default {
   data: function() {
@@ -23,17 +23,14 @@ export default {
       counter: 0,
       currentView: 'headerblock',
       children: [
-        {name: 'headerblock', body: ['へっだー'], display: true},
-        {name: 'subblock', body: ['さぶへっだー', 'さぶこんてんつ'], display: true},
-        {name: 'headerblock', body: ['へっだーふたたび1'], display: false},
-        {name: 'headerblock', body: ['へっだーふたたび2'], display: true},
-        {name: 'headerblock', body: ['へっだーふたたび3'], display: true},
+        {name: 'plain', body: ['ただのテキストのみのブロック'], display: true},
+        {name: 'basic1', body: ['見出し付きのブロック', 'テキストテキスト'], display: true},
       ]
     }
   },
   components: {
-    "headerblock": HeaderBlock,
-    "subblock": Sub1Block
+    "plain": PlainComponent,
+    "basic1": Basic1Component
   },
   methods: {
     capture: function(){
@@ -44,13 +41,13 @@ export default {
     log: function(){
       console.log(this.children)
     },
-    add_header_block: function(){
+    add_plain_component: function(){
       this.counter += 1
-      this.children.push({name: 'headerblock', body: ["ついかしたへっだー" + this.counter, 'さぶこんてんつ'], display: true})
+      this.children.push({name: 'plain', body: ["ついかしたへっだー" + this.counter, 'さぶこんてんつ'], display: true})
     },
-    add_sub1_block: function(){
+    add_basic1_component: function(){
       this.counter += 1
-      this.children.push({name: 'subblock', body: ['さぶへっだー' + this.counter, 'さぶこんてんつ'], display: true})
+      this.children.push({name: 'basic1', body: ['さぶへっだー' + this.counter, 'さぶこんてんつ'], display: true})
     },
     // remove_block: function(child){
     //   console.log('Delete: ' + child);
@@ -97,6 +94,5 @@ export default {
 
 .design_component {
   position: relative;
-  background-color: rgb(223, 222, 220)
 }
 </style>
