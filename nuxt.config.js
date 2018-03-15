@@ -17,6 +17,7 @@ module.exports = {
     'element-ui/lib/theme-chalk/reset.css',
     'element-ui/lib/theme-chalk/index.css',
     '~/stylesheets/common.sass',
+    '~/stylesheets/functions.sass',
     '~/stylesheets/close_button.sass',
     '~/stylesheets/design_block.sass',
   ],

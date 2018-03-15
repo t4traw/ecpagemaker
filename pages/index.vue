@@ -1,9 +1,9 @@
 <template>
   <section class="container">
-      <template v-for="(child, index) in children">
-        <component v-bind:key="index" v-bind:index="index" v-bind:is="child.name" v-bind:msg="child.body" v-on:remove="child.display = false" v-if="child.display" class="design_component"></component>
-      </template>
-    <div class="">
+    <template v-for="(child, index) in children">
+      <component v-bind:key="index" v-bind:index="index" v-bind:is="child.name" v-bind:msg="child.body" v-on:remove="child.display = false" v-if="child.display" class="design_component"></component>
+    </template>
+    <div class="controll_panel">
       <button v-on:click="add_plain_component">Add Plain</button>
       <button v-on:click="add_basic1_component">Add Basic1</button>
       <button v-on:click="capture">Capture!!!!</button>
@@ -16,6 +16,7 @@
 import html2canvas from 'html2canvas'
 import PlainComponent from '~/components/design_block/plain.vue'
 import Basic1Component from '~/components/design_block/basic1.vue'
+import Image1Component from '~/components/design_block/image1.vue'
 
 export default {
   data: function() {
@@ -25,12 +26,14 @@ export default {
       children: [
         {name: 'plain', body: ['ただのテキストのみのブロック'], display: true},
         {name: 'basic1', body: ['見出し付きのブロック', 'テキストテキスト'], display: true},
+        {name: 'image1', body: ['画像つきブロック', 'テキストテキスト'], display: true},
       ]
     }
   },
   components: {
     "plain": PlainComponent,
-    "basic1": Basic1Component
+    "basic1": Basic1Component,
+    "image1": Image1Component,
   },
   methods: {
     capture: function(){
@@ -49,11 +52,6 @@ export default {
       this.counter += 1
       this.children.push({name: 'basic1', body: ['さぶへっだー' + this.counter, 'さぶこんてんつ'], display: true})
     },
-    // remove_block: function(child){
-    //   console.log('Delete: ' + child);
-    //   this.children.$remove(child)
-    //   console.log(this.children)
-    // }
   }
 }
 
@@ -63,6 +61,10 @@ export default {
 
 #design_column {
   width: 800px;
+}
+
+.controll_panel {
+  clear: both;
 }
 
 .container {
