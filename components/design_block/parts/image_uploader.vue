@@ -5,8 +5,9 @@
     :show-file-list="false"
     :on-success="handleAvatarSuccess"
     :before-upload="beforeAvatarUpload">
-    <img v-if="imageUrl" :src="imageUrl" class="avatar">
-    <i v-else class="el-icon-picture-outline avatar-uploader-icon"></i>
+    <!-- <img v-if="imageUrl" :src="imageUrl" class="avatar"> -->
+    <img src="~assets/hoge.jpg" class="avatar">
+    <!-- <i v-else class="el-icon-picture-outline avatar-uploader-icon"></i> -->
   </el-upload>
 </template>
 
