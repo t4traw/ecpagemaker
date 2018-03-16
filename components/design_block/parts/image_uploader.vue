@@ -11,15 +11,16 @@
 </template>
 
 <style lang="scss">
-  .avatar-uploader .el-upload {
+  .avatar-uploader, .el-upload {
     // border: 1px dashed #d9d9d9;
     // border-radius: 6px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    display: inline-block;
+    // display: inline-block;
     width: 100%;
-    background-color: rgb(235, 235, 235)
+    height: 100%;
+    background-color: rgb(235, 235, 235);
   }
   .avatar-uploader .el-upload:hover {
     border-color: #409EFF;
@@ -27,9 +28,13 @@
   .avatar-uploader-icon {
     font-size: 28px;
     color: #8c939d;
-    /* height: 178px; */
-    line-height: 178px;
+    // height: 178px;
+    // line-height: 178px;
     text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
   .avatar {
     width: 178px;

@@ -63,6 +63,15 @@ export default {
   width: 800px;
 }
 
+.design_component {
+  position: relative;
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
 .controll_panel {
   clear: both;
 }
@@ -71,6 +80,7 @@ export default {
   width: 800px;
   margin: 2em auto;
   min-height: 100vh;
+  
 }
 
 .title {
@@ -94,7 +104,5 @@ export default {
   padding-top: 15px;
 }
 
-.design_component {
-  position: relative;
-}
+
 </style>
